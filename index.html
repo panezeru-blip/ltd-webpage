@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home | My Personal Website</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="hero">
+      <nav class="navbar">
+        <a class="brand" href="index.html">zerubbabel</a>
+        <div class="nav-links">
+          <a href="index.html" class="active">Home</a>
+          <a href="about.html">About</a>
+          <a href="contact.html">Contact</a>
+          <a href="projects.html">Projects</a>
+        </div>
+      </nav>
+
+      <div class="hero-grid">
+        <div class="hero-content">
+          <p class="eyebrow">Welcome to</p>
+          <h1>my webpage.</h1>
+          <p>
+            I’m a creative developer passionate about design, problem-solving,
+            and building websites that feel personal and memorable.
+          </p>
+          <a class="btn" href="contact.html">Start Here</a>
+        </div>
+
+        <aside class="hero-side-card">
+          <h2>Profile Photo</h2>
+          <p>Upload your profile image here.</p>
+          <div class="profile-upload">
+            <image src="IMG_4873.jpeg" image id="profileImagePreview"/> 
+            <input id="profileImage" type="file" accept="image/*" />
+            <img
+              id="profilePreview"
+              class="profile-preview"
+              alt="Profile preview"
+              hidden
+            />
+          </div>
+        </aside>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="card-grid">
+        <article class="card">
+          <h2>Why it matters</h2>
+          <p>
+            Every project is designed to feel welcoming, clear, and easy to use
+            from the first click to the final interaction.
+          </p>
+        </article>
+      </section>
+    </main>
+
+    <script>
+      const profileImageInput = document.getElementById('profileImage');
+      const profilePreview = document.getElementById('profilePreview');
+
+      profileImageInput.addEventListener('change', function () {
+        const file = this.files[0];
+        if (!file) {
+          profilePreview.hidden = true;
+          return;
+        }
+
+        const reader = new FileReader();
+        reader.onload = function (event) {
+          profilePreview.src = event.target.result;
+          profilePreview.hidden = false;
+        };
+        reader.readAsDataURL(file);
+      });
+    </script>
+
+    <footer>
+      <p>© 2026 My Personal Website</p>
+    </footer>
+  </body>
+</html>
+   
+    
